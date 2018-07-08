@@ -18,6 +18,8 @@ using System.Collections;
 using System.Collections.Generic;
 using PureMVC.Patterns.Facade;
 using PureMVCDemo.Control;
+using PureMVCDemo.Model;
+using PureMVCDemo.View;
 using SUIFW;
 using UnityEngine;
 
@@ -35,8 +37,12 @@ namespace PureMVCDemo {
 
 		public AppFacade(){
 			//注册核心的“命令”（第二个参数：使用空参数的表达式Lambda写法）
-			RegisterCommand(ProConsts.CMD_Reg_StartGame, () => new Ctrl_StartGameCommand());
+			RegisterCommand(ProConsts.CMD_Reg_StartGame, () => new Ctrl_RestartGameCommand());
 			RegisterCommand(ProConsts.CMD_Reg_EndGame, () => new Ctrl_EndGameCommand());
+
+			//注册模型层与视图层
+			RegisterProxy(new Mod_GameDataProxy());
+			RegisterMediator(new View_GamePlayingMediator());
 
 
 			//添加游戏对象脚本

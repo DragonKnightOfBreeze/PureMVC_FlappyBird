@@ -27,8 +27,14 @@ namespace PureMVCDemo {
 	/// </summary>
 	public class GlobalParams {
 
+		/// <summary>
+		/// 游戏是否开始
+		/// </summary>
 		public static bool IsStartGame = false;
-
+		/// <summary>
+		/// 互动锁
+		/// </summary>
+		public static bool InteractionBlock = false;
 
 
 	}

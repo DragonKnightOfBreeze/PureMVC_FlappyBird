@@ -33,8 +33,8 @@ namespace PureMVCDemo.Control {
 	public class Ctrl_RigisterCommand : SimpleCommand {
 		
 		public override void Execute(INotification notification){
-			Facade.RegisterProxy(new Mod_GameDataProxy());
-			Facade.RegisterMediator(new View_GamePlayingMediator());
+			//Facade.RegisterProxy(new Mod_GameDataProxy());
+			//Facade.RegisterMediator(new View_GamePlayingMediator());
 		}
 	}
 

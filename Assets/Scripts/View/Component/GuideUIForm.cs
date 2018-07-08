@@ -38,7 +38,11 @@ namespace PureMVCDemo.View {
 				OpenUIForm(ProConsts.NAME_PlayingUIForm);
 				//MVC启动命令
 				Facade.GetInstance(()=>new AppFacade()).SendNotification(ProConsts.CMD_Reg_StartGame);
+				//+++对视图层字段初始化+++
+				Facade.GetInstance(()=>new AppFacade()).SendNotification(ProConsts.CMD_Msg_InitMediatorFields);
+
 			});
+
 		}
 
 

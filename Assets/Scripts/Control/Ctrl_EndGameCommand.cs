@@ -50,11 +50,12 @@ namespace PureMVCDemo.Control {
 			//停止脚本运行。
 			StopScriptRunning();
 			
-
 			//保存当前最高分数
-			//???为什么这里使用了一种面向接口的方法，就不需要调用GetInstance方法了???
+			//使用了一种面向接口的方法，就不需要调用GetInstance方法了
 			_proxyObj =  Facade.RetrieveProxy(Mod_GameDataProxy.NAME) as Mod_GameDataProxy;
 			_proxyObj?.SaveHighestScore();
+			//重置游戏数据
+			_proxyObj?.ResetData();
 
 			//关闭当前UI窗体，回到引导窗体
 			CloseCurrentUIForm();
@@ -83,7 +84,7 @@ namespace PureMVCDemo.Control {
 		/// </summary>
 		private void  CloseCurrentUIForm(){
 			//TODO：如何实现时间的延迟？
-			//如何才能正确地打开？
+			//分离消息，在普通控制脚本中延迟调用。
 			UIManager.GetInstance().CloseUIForm(ProConsts.NAME_PlayingUIForm);
 			UIManager.GetInstance().OpenUIForm(ProConsts.NAME_GuideUIForm);
 			

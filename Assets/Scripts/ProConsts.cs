@@ -55,11 +55,11 @@ namespace PureMVCDemo {
 
 		public const string CMD_Reg_StartGame = "Reg_StartGame";
 		public const string CMD_Reg_EndGame = "Reg_EndGame";
-		public const string CMD_Reg_RestartGame = "Reg_RestartGame";
 
 		/* 消息命令常量 */
 
 		public const string CMD_Msg_DisplayGameInfo = "Msg_DisplayGameInfo";
+		public const string CMD_Msg_InitMediatorFields = "Msg_InitMediatorFields";
 
 
 		/* 数值型常量 */

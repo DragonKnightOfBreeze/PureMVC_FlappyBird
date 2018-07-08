@@ -49,6 +49,65 @@ namespace PureMVCDemo.View {
 		/// 构造函数
 		/// </summary>
 		public View_GamePlayingMediator() : base(NAME){
+			////得到层级视图的根节点
+			//GameObject goCanvas = GameObject.Find("Canvas(Clone)");
+
+			////得到控件
+			////过多使用nameof关键字是否会影响性能？
+			//Txt_Time_Pre = UnityHelper.GetComponentInChildNode<Text>(goCanvas, nameof(Txt_Time_Pre));
+			//Txt_Score_Pre = UnityHelper.GetComponentInChildNode<Text>(goCanvas, nameof(Txt_Score_Pre));
+			//Txt_HighestScore_Pre = UnityHelper.GetComponentInChildNode<Text>(goCanvas, nameof(Txt_HighestScore_Pre));
+
+			//Txt_Time = UnityHelper.GetComponentInChildNode<Text>(goCanvas, nameof(Txt_Time));
+			//Txt_Score = UnityHelper.GetComponentInChildNode<Text>(goCanvas, nameof(Txt_Score));
+			//Txt_HighestScore = UnityHelper.GetComponentInChildNode<Text>(goCanvas, nameof(Txt_HighestScore));
+
+			////确定控件显示的文字
+			////TODO语言国际化
+			//Txt_Time_Pre.text = "时间：";
+			//Txt_Score_Pre.text = "分数：";
+			//Txt_HighestScore_Pre.text = "最高分：";
+
+
+		}
+
+		/// <summary>
+		/// 允许接受的消息列表
+		/// </summary>
+		/// <returns></returns>
+		public override string[] ListNotificationInterests(){
+			string[] strList = new string[] {
+				ProConsts.CMD_Msg_DisplayGameInfo,
+				ProConsts.CMD_Msg_InitMediatorFields
+			};
+
+			return strList;
+		}
+
+		/// <summary>
+		/// 处理接受到的消息列表
+		/// </summary>
+		/// <param name="notification"></param>
+		public override void HandleNotification(INotification notification){
+			
+			switch (notification.Name) {
+				case ProConsts.CMD_Msg_DisplayGameInfo:
+					DisplayGameInfo(notification);
+					break;
+				case ProConsts.CMD_Msg_InitMediatorFields:
+					InitMediatorFields();
+					break;
+				default:
+					break;
+			}
+		}
+
+		#region 【私有方法】
+
+		/// <summary>
+		/// 初始化字段
+		/// </summary>
+		private void InitMediatorFields(){
 			//得到层级视图的根节点
 			GameObject goCanvas = GameObject.Find("Canvas(Clone)");
 
@@ -67,39 +126,7 @@ namespace PureMVCDemo.View {
 			Txt_Time_Pre.text = "时间：";
 			Txt_Score_Pre.text = "分数：";
 			Txt_HighestScore_Pre.text = "最高分：";
-
-
 		}
-
-		/// <summary>
-		/// 允许接受的消息列表
-		/// </summary>
-		/// <returns></returns>
-		public override string[] ListNotificationInterests(){
-			string[] strList = new string[] {
-				ProConsts.CMD_Msg_DisplayGameInfo
-			};
-
-			return strList;
-		}
-
-		/// <summary>
-		/// 处理接受到的消息列表
-		/// </summary>
-		/// <param name="notification"></param>
-		public override void HandleNotification(INotification notification){
-			
-			switch (notification.Name) {
-				case ProConsts.CMD_Msg_DisplayGameInfo:
-					DisplayGameInfo(notification);
-					break;
-
-				default:
-					break;
-			}
-		}
-
-		#region 【私有方法】
 
 		/// <summary>
 		/// 显示游戏信息

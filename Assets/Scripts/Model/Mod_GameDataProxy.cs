@@ -52,7 +52,6 @@ namespace PureMVCDemo.Model {
 			SendNotification(ProConsts.CMD_Msg_DisplayGameInfo,_GameData,null);
 		}
 
-
 		public void AddScore(){
 			++_GameData.Score;
 			//更新最高分数
@@ -67,6 +66,8 @@ namespace PureMVCDemo.Model {
 		}
 
 
+
+
 		/// <summary>
 		/// 保存最高分数
 		/// （由命令层来调用）
@@ -76,6 +77,14 @@ namespace PureMVCDemo.Model {
 			{
 				PlayerPrefs.SetInt(NAME_HighestScore,_GameData.HighestScore);
 			}
+		}
+
+		/// <summary>
+		/// 重置游戏数据
+		/// </summary>
+		public void ResetData(){
+			_GameData.Score = 0;
+			_GameData.Time = 0;
 		}
 	}
 }

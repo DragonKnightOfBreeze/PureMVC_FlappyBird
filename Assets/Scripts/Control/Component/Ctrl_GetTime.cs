@@ -34,6 +34,7 @@ namespace PureMVCDemo.Control {
 
 		public void StartGame(){
 			//得到模型层类的对象实例
+			
 			dataProxy =
 				Facade.GetInstance(() => new AppFacade()).RetrieveProxy(Mod_GameDataProxy.NAME) as Mod_GameDataProxy;
 

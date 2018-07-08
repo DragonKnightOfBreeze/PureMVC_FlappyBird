@@ -51,24 +51,6 @@ namespace PureMVCDemo.Control {
 
 		void Update(){
 
-			if (GlobalParams.IsStartGame) {
-				//接受玩家输入
-				if (Input.GetButton("Fire1")) {
-					rb2D.velocity = Vector2.up * FloUPPower;
-				}
-
-				//接受玩家鼠标点击
-				else if (Input.GetMouseButton(1)) {
-					rb2D.velocity = Vector2.up * FloUPPower;
-				}
-
-				////接受玩家触屏点击
-				//EventTriggerListener.GetListener(gameObject).onClick += p => {
-				//	rb2D.velocity = Vector2.up * FloUPPower;
-				//};
-
-
-			}
 		}
 
 		/// <summary>
@@ -92,6 +74,25 @@ namespace PureMVCDemo.Control {
 			DisableRigidbody2D();
 			//恢复小鸟的原始位置
 			gameObject.transform.position = _BirdOriginalPosition;
+		}
+
+		private void BirdInteraction(){
+			if (GlobalParams.IsStartGame) {
+				//接受玩家输入
+				if (Input.GetButton("Fire1")) {
+					rb2D.velocity = Vector2.up * FloUPPower;
+				}
+
+				//接受玩家鼠标点击
+				else if (Input.GetMouseButton(1)) {
+					rb2D.velocity = Vector2.up * FloUPPower;
+				}
+
+				////接受玩家触屏点击
+				//EventTriggerListener.GetListener(gameObject).onClick += p => {
+				//	rb2D.velocity = Vector2.up * FloUPPower;
+				//};
+			}
 		}
 
 
