@@ -1,0 +1,16 @@
+﻿{
+	"ConfigInfo": [
+		{
+			"Key": "GuideUIForm",
+			"Value": "Prefabs/UI/GuideUIForm"
+		},
+		{
+			"Key": "StartUIForm",
+			"Value": "Prefabs/UI/StartUIForm"
+		},
+		{
+			"Key": "PlayingUIForm",
+			"Value": "Prefabs/UI/PlayingUIForm"
+		}
+	]
+}
